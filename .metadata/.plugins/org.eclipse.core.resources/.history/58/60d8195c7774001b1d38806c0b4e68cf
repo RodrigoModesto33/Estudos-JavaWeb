@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Informações sobre aluno:</h1>
+<h2>nome:</h2> <h2>data de nascimento</h2>
+<h2> curso: </h2>
+<h2>semestre que está cursando:</h2>
+</body>
+</html>

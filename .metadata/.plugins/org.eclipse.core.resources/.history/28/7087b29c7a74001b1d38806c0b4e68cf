@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Lista de Filmes</title>
+</head>
+<body>
+<ol>
+<li><h2>Nome:Titanic <br>
+	Genero:Romance <br>
+	Ano de lançamento:1997</h2>
+</li>
+
+<li></li>
+
+<li></li>
+
+</ol>
+</body>
+</html>

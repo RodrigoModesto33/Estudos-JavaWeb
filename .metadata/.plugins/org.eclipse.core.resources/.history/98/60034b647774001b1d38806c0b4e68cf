@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Informações sobre aluno:</h1>
+<h2>nome:Rodrigo Modesto</h2>
+<h2>data de nascimento:19/10/1997</h2>
+<h2> curso: Sistemas de Informação</h2>
+<h2>semestre que está cursando:9°</h2>
+</body>
+</html>

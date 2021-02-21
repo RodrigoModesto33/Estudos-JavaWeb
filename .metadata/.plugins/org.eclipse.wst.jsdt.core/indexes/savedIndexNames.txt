@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+/home/rodrigo/Estudos-Java/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
+2242014791.index
+741843413.index
+3866613870.index
+373453334.index
+2056125867.index
