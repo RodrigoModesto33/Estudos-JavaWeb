@@ -3,7 +3,10 @@ package br.com.lead.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -31,17 +34,15 @@ public class FilmeServlet extends HttpServlet{
 	
 	res.setContentType("text/HTML");
 	PrintWriter out = res.getWriter();
-	out.println("<h2>Lista de filmes utilizando servlets</h2>");
 	
+	out.println("<h2>Lista de filmes utilizando servlets</h2>");
 	out.println("<ol>");
 	
-	filmes.stream().filter(filme -> filme.getGenero().equalsIgnoreCase(genero.toUpperCase())).forEach(filme -> {
-		out.println(String.format("<li> Nome: %s,", filme.getNome()));
-		out.println(String.format("Genero: %s,", filme.getGenero()));
-		out.println(String.format("Ano: %s</li>", filme.getAno()));
-	});
+	ArrayList<Filme> listaFiltrada = filmes.stream().filter(filme -> filme.getGenero().equalsIgnoreCase(genero)).collect(Collectors.toCollection(ArrayList::new));
 	
-	out.println("</ol>");
-	out.close();
+	req.setAttribute("listaFiltrada", listaFiltrada);
+	
+	RequestDispatcher dispacher = req.getRequestDispatcher("lista-filmes.jsp");
+	dispacher.forward(req, res);
 	}
 }

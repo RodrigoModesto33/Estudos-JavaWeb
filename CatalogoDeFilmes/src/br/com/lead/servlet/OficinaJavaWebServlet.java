@@ -1,0 +1,50 @@
+	package br.com.lead.servlet;
+
+	import java.io.IOException;
+	import java.io.PrintWriter;
+	import java.util.ArrayList;
+
+	import javax.servlet.ServletException;
+	import javax.servlet.ServletRequest;
+	import javax.servlet.ServletResponse;
+	import javax.servlet.annotation.WebServlet;
+	import javax.servlet.http.HttpServlet;
+
+import br.com.lead.model.Filme;
+
+@WebServlet("/oficina-filme")
+public class OficinaJavaWebServlet extends HttpServlet{
+
+		@Override
+		public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
+		Filme coringa = new Filme("Coringa", "Drama", 2019);
+		Filme matrix= new Filme("Matrix", "Ação", 1991);
+		Filme forestGump = new Filme("Forest Gump", "Drama", 1994);
+		
+		ArrayList<Filme> filmes = new ArrayList<Filme>();
+		filmes.add(coringa);
+		filmes.add(matrix);
+		filmes.add(forestGump);
+		
+		String ano = req.getParameter("ano");
+		int anoInt = Integer.parseInt(ano);
+		
+		res.setContentType("text/HTML");
+		PrintWriter out = res.getWriter();
+		
+		out.println("<h2>Lista de filmes utilizando servlets</h2>");
+		out.println("<ol>");
+		
+		filmes.stream().filter(filme -> filme.getAno() >= anoInt).forEach(filme -> {
+			out.println(String.format("<li> Nome: %s,", filme.getNome()));
+			out.println(String.format("Genero: %s,", filme.getGenero()));
+			out.println(String.format("Ano: %s</li>", filme.getAno()));
+		});
+		
+		out.println("</ol>");
+		out.close();
+		}
+	
+
+	
+}
